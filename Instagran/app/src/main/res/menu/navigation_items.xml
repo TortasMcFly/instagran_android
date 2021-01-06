@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/item_inicio"
+        android:icon="@drawable/ic_home"
         android:title="@string/inicio" />
 
     <item
         android:id="@+id/item_buscar"
+        android:icon="@drawable/ic_search"
         android:title="@string/buscar" />
 
     <item
         android:id="@+id/item_reels"
+        android:icon="@drawable/ic_reels"
         android:title="@string/reels" />
 
     <item
         android:id="@+id/item_tienda"
+        android:icon="@drawable/ic_tienda"
         android:title="@string/tienda" />
 
     <item
         android:id="@+id/item_perfil"
+        android:icon="@drawable/ic_person"
         android:title="@string/perfil" />
 
 </menu>
