@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation"
+    app:startDestination="@id/inicioFragment">
+
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="hector.villa.instagran.ui.inicio.InicioFragment"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" />
+    <fragment
+        android:id="@+id/buscadorFragment"
+        android:name="hector.villa.instagran.ui.buscador.BuscadorFragment"
+        android:label="fragment_buscador"
+        tools:layout="@layout/fragment_buscador" />
+    <fragment
+        android:id="@+id/reelsFragment"
+        android:name="hector.villa.instagran.ui.reels.ReelsFragment"
+        android:label="fragment_reels"
+        tools:layout="@layout/fragment_reels" />
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="hector.villa.instagran.ui.perfil.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/tiendaFragment"
+        android:name="hector.villa.instagran.ui.tienda.TiendaFragment"
+        android:label="fragment_tienda"
+        tools:layout="@layout/fragment_tienda" />
+</navigation>
