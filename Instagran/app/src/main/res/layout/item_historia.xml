@@ -7,14 +7,32 @@
     android:gravity="center"
     android:layout_margin="10dp">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageViewHistoria"
+    <RelativeLayout
+        android:id="@+id/relativeHistoria"
         android:layout_width="66dp"
-        android:layout_height="66dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/profile_steve"
-        app:civ_border_width="2dp"
-        app:civ_border_color="#A6A6A6"/>
+        android:layout_height="66dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageViewHistoria"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_steve"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/historia_vista_borde"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/btnAgregarHistoria"
+            android:background="?selectableItemBackgroundBorderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_add_circle_24"
+            app:civ_circle_background_color="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            app:civ_border_width="0dp"/>
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/tvUsername"
