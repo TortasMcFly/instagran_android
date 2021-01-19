@@ -28,7 +28,6 @@
             android:background="@color/linea_separacion"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:background="@color/purple_200"
             android:id="@+id/recyclerPosts"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

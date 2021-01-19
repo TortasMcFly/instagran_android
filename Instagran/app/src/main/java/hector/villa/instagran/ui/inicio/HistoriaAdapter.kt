@@ -13,7 +13,7 @@ class HistoriaAdapter(val historias: ArrayList<String>, val context: Context) : 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoriaViewHolder {
         return HistoriaViewHolder(
-                LayoutInflater.from(context).inflate(R.layout.item_historia, parent)
+                LayoutInflater.from(context).inflate(R.layout.item_historia, parent, false)
         )
     }
 
