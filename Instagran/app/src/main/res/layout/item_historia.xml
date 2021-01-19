@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:gravity="center"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="10dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/imageViewHistoria"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:src="@drawable/mista"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
         android:scaleType="centerCrop"
+        android:src="@drawable/profile_steve"
         app:civ_border_width="2dp"
-        app:civ_border_color="@color/historia_vista_borde"/>
+        app:civ_border_color="#A6A6A6"/>
 
     <TextView
         android:id="@+id/tvUsername"
         android:layout_marginTop="5dp"
-        android:layout_width="96dp"
+        android:layout_width="76dp"
+        android:textSize="12sp"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:text="XxAlexandro115xX"
+        android:textAlignment="center"
         android:maxLines="1"
         android:ellipsize="end"
-        android:textAlignment="center"/>
+        android:text="tortasmcflyelchido"/>
 </LinearLayout>

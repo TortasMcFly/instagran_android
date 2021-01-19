@@ -8,6 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="lineaSeparacion">#CACACA</color>
+    <color name="linea_separacion">#CACACA</color>
     <color name="historia_vista_borde">#A6A6A6</color>
 </resources>

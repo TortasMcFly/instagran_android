@@ -7,31 +7,31 @@
     android:fillViewport="true"
     tools:context=".ui.inicio.InicioFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerHistorias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/recyclerHistorias"
             tools:listitem="@layout/item_historia"
-            tools:itemCount="5"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="horizontal"/>
+            android:orientation="horizontal"
+            tools:itemCount="6"
+            />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/lineaSeparacion"/>
+            android:background="@color/linea_separacion"/>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerPosts"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/purple_200"
-            android:id="@+id/recyclerPosts"/>
+            android:layout_height="match_parent"/>
+
 
     </LinearLayout>
 
