@@ -26,11 +26,23 @@ class HistoriaAdapter(val historias: ArrayList<Historia>, val context: Context) 
 
     override fun onBindViewHolder(holder: HistoriaViewHolder, position: Int) {
         holder.btnAgregarHistoria.visibility = if(position == 0) View.VISIBLE else View.GONE
-        holder.tvUsername.text = historias[position].username
+        holder.tvUsername.text = if(position == 0) "Tu historia" else historias[position].username
 
         Glide.with(context)
                 .load( historias[position].profileImage)
                 .into(holder.imageViewHistoria)
+
+        holder.imageViewHistoria.borderColor =
+                if(historiasYaVistas(position))
+                {
+                    if(position == 0) holder.btnAgregarHistoria.visibility = View.VISIBLE
+                    context.resources.getColor(R.color.historia_vista_borde, null)
+                }
+                else
+                {
+                    if(position == 0) holder.btnAgregarHistoria.visibility = View.GONE
+                    context.resources.getColor(R.color.historia_nueva, null)
+                }
 
         val animation = AnimationUtils.loadAnimation(context, R.anim.bounce)
         holder.relativeHistoria.tag = position
@@ -42,6 +54,17 @@ class HistoriaAdapter(val historias: ArrayList<Historia>, val context: Context) 
             if(pos == 0) Toast.makeText(context, "Agregar historia", Toast.LENGTH_SHORT).show()
             else Toast.makeText(context, "Ver historia de ${ historias[pos].username }", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun historiasYaVistas(position: Int): Boolean {
+        var vistas = true
+        historias[position].imagenes.forEach {
+            if(!it.vista) {
+                vistas = false
+                return@forEach
+            }
+        }
+        return vistas
     }
 
     override fun getItemCount(): Int {

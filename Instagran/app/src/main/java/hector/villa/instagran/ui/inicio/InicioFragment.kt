@@ -26,10 +26,10 @@ class InicioFragment : Fragment() {
         val viewRoot = inflater.inflate(R.layout.fragment_inicio, container, false)
         val recyclerHistorias = viewRoot.findViewById<RecyclerView>(R.id.recyclerHistorias)
         val historias = ArrayList<Historia>()
-        historias.add(Historia("hector88", "https://miro.medium.com/max/1082/1*E3DrG0S77WuiXaPYmXMn4Q.jpeg", Date(), obtenerImagenesEjemplo()))
+        historias.add(Historia("hector88", "https://miro.medium.com/max/1082/1*E3DrG0S77WuiXaPYmXMn4Q.jpeg", Date(), obtenerImagenesEjemplo2()))
         historias.add(Historia("tony789", "https://imagenes.20minutos.es/files/og_thumbnail/uploads/imagenes/2020/05/12/elon-musk-director-de-testa-y-spacex.jpeg", Date(), obtenerImagenesEjemplo()))
         historias.add(Historia("tortasMcFly", "https://pm1.narvii.com/6959/0abc2ee7487547f50e380ab77069beb11245eb0ar1-1008-500v2_00.jpg", Date(), obtenerImagenesEjemplo()))
-        historias.add(Historia("roberto_bolaños", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/spiderman-sony-spiderverso-1567749360.jpeg", Date(), obtenerImagenesEjemplo()))
+        historias.add(Historia("roberto_bolaños", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/spiderman-sony-spiderverso-1567749360.jpeg", Date(), obtenerImagenesEjemplo2()))
 
         context?.let {
             val historiaAdapter = HistoriaAdapter(historias, it)
@@ -43,7 +43,17 @@ class InicioFragment : Fragment() {
     private fun obtenerImagenesEjemplo(): ArrayList<ImagenHistoria> {
 
         val imagenes = ArrayList<ImagenHistoria>()
-        imagenes.add(ImagenHistoria("ajshdka.png", Date(), false))
+        imagenes.add(ImagenHistoria("ajshdka.png", Date(), true))
+        imagenes.add(ImagenHistoria("ajshdka.png", Date(), true))
+        imagenes.add(ImagenHistoria("ajshdka.png", Date(), true))
+
+        return imagenes
+    }
+
+    private fun obtenerImagenesEjemplo2(): ArrayList<ImagenHistoria> {
+
+        val imagenes = ArrayList<ImagenHistoria>()
+        imagenes.add(ImagenHistoria("ajshdka.png", Date(), true))
         imagenes.add(ImagenHistoria("ajshdka.png", Date(), false))
         imagenes.add(ImagenHistoria("ajshdka.png", Date(), false))
 
