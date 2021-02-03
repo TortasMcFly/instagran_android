@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c50a4356-5217-42fa-a42b-5b909eab7448" name="Default Changelist" comment="" />
+    <list default="true" id="c50a4356-5217-42fa-a42b-5b909eab7448" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Instagran/app/src/main/java/hector/villa/instagran/ui/buscador/buscadorFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Instagran/app/src/main/java/hector/villa/instagran/ui/buscador/buscadorFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Instagran/app/src/main/java/hector/villa/instagran/ui/inicio/inicioFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Instagran/app/src/main/java/hector/villa/instagran/ui/inicio/inicioFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Instagran/app/src/main/java/hector/villa/instagran/ui/perfil/perfilFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Instagran/app/src/main/java/hector/villa/instagran/ui/perfil/perfilFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Instagran/app/src/main/java/hector/villa/instagran/ui/reels/reelsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Instagran/app/src/main/java/hector/villa/instagran/ui/reels/reelsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Instagran/app/src/main/java/hector/villa/instagran/ui/tienda/tiendaFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Instagran/app/src/main/java/hector/villa/instagran/ui/tienda/tiendaFragment.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

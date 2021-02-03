@@ -5,54 +5,59 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import hector.villa.instagran.R
+import hector.villa.instagran.ui.domain.Historia
+import hector.villa.instagran.ui.domain.ImagenHistoria
+import java.util.*
+import kotlin.collections.ArrayList
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class InicioFragment : Fragment() {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [inicio.newInstance] factory method to
- * create an instance of this fragment.
- */
-class inicio : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inicio, container, false)
+
+        val viewRoot = inflater.inflate(R.layout.fragment_inicio, container, false)
+        val recyclerHistorias = viewRoot.findViewById<RecyclerView>(R.id.recyclerHistorias)
+        val historias = ArrayList<Historia>()
+        historias.add(Historia("artemiop", "https://assets.tonica.la/__export/1565364026155/sites/debate/img/2019/08/09/mr_robot_1.jpg_463833556.jpg", Date(), obtenerImagenesEjemplo2()))
+
+        historias.add(Historia("artemiop2", "https://assets.tonica.la/__export/1565364026155/sites/debate/img/2019/08/09/mr_robot_1.jpg_463833556.jpg", Date(), obtenerImagenesEjemplo()))
+
+        historias.add(Historia("artemiop3", "https://assets.tonica.la/__export/1565364026155/sites/debate/img/2019/08/09/mr_robot_1.jpg_463833556.jpg", Date(), obtenerImagenesEjemplo()))
+
+        historias.add(Historia("artemiop4", "https://assets.tonica.la/__export/1565364026155/sites/debate/img/2019/08/09/mr_robot_1.jpg_463833556.jpg", Date(), obtenerImagenesEjemplo2()))
+
+        context?.let {
+            val historiaAdapter = HistoriaAdapter(historias, it)
+            recyclerHistorias.adapter = historiaAdapter
+            recyclerHistorias.layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
+        }
+        return viewRoot
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment inicio.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-                inicio().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
+    private fun obtenerImagenesEjemplo(): ArrayList<ImagenHistoria> {
+        val imagenes = ArrayList<ImagenHistoria>()
+        imagenes.add(ImagenHistoria("icon.png", Date(), true))
+        imagenes.add(ImagenHistoria("icon.png", Date(), true))
+        imagenes.add(ImagenHistoria("icon.png", Date(), true))
+
+        return imagenes
     }
+
+    private fun obtenerImagenesEjemplo2(): ArrayList<ImagenHistoria> {
+        val imagenes = ArrayList<ImagenHistoria>()
+        imagenes.add(ImagenHistoria("icon.png", Date(), true))
+        imagenes.add(ImagenHistoria("icon.png", Date(), false))
+        imagenes.add(ImagenHistoria("icon.png", Date(), false))
+
+        return imagenes
+    }
+
 }

@@ -10,9 +10,12 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import de.hdodenhof.circleimageview.CircleImageView
 import hector.villa.instagran.R
+import hector.villa.instagran.ui.domain.Historia
 
-class HistoriaAdapter(val historias: ArrayList<String>, val context: Context) : RecyclerView.Adapter<HistoriaAdapter.HistoriaViewHolder>() {
+class HistoriaAdapter(val historias: ArrayList<Historia>, val context: Context) : RecyclerView.Adapter<HistoriaAdapter.HistoriaViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoriaViewHolder {
@@ -23,8 +26,19 @@ class HistoriaAdapter(val historias: ArrayList<String>, val context: Context) : 
 
     override fun onBindViewHolder(holder: HistoriaViewHolder, position: Int) {
         holder.btnAgregarHistoria.visibility = if(position == 0) View.VISIBLE else View.GONE
-        holder.tvUsername.text = historias[position]
+        holder.tvUsername.text = historias[position].username
 
+        Glide.with(context).
+                load("").into(holder.imageViewHistoria)
+
+        holder.imageViewHistoria.borderColor =
+                if(historiasVistas(position)) {
+                    if (position == 0) holder.btnAgregarHistoria.visibility = View.VISIBLE
+                    context.resources.getColor(R.color.historia_vista_borde, null)
+                }else {
+                    if(position == 0) holder.btnAgregarHistoria.visibility = View.GONE
+                    context.resources.getColor(R.color.historia_nueva, null)
+                }
         val animation = AnimationUtils.loadAnimation(context, R.anim.bounce)
         holder.relativeHistoria.tag = position
         holder.relativeHistoria.setOnClickListener {
@@ -37,6 +51,17 @@ class HistoriaAdapter(val historias: ArrayList<String>, val context: Context) : 
         }
     }
 
+    fun historiasVistas(position: Int): Boolean {
+        var vistas = true
+        historias[position].imagenes.forEach{
+            if(!it.vista){
+                vistas = false
+                return@forEach
+            }
+        }
+        return vistas
+    }
+
     override fun getItemCount(): Int {
         return historias.size
     }
@@ -45,5 +70,6 @@ class HistoriaAdapter(val historias: ArrayList<String>, val context: Context) : 
         val tvUsername: TextView = view.findViewById(R.id.tvUsername)
         val btnAgregarHistoria: ImageView = view.findViewById(R.id.btnAgregarHistoria)
         val relativeHistoria: RelativeLayout = view.findViewById(R.id.relativeHistoria)
+        val imageViewHistoria: CircleImageView = view.findViewById(R.id.imageViewHistoria)
     }
 }
