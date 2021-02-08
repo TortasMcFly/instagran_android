@@ -17,6 +17,11 @@ import hector.villa.instagran.domain.Historia
 
 class HistoriaAdapter(val historias: ArrayList<Historia>, val context: Context) : RecyclerView.Adapter<HistoriaAdapter.HistoriaViewHolder>() {
 
+    interface OnHistoryClickListener {
+        fun onHistoryClickListener(position: Int)
+    }
+
+    var onHistorylickListener: OnHistoryClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoriaViewHolder {
         return HistoriaViewHolder(
@@ -49,8 +54,10 @@ class HistoriaAdapter(val historias: ArrayList<Historia>, val context: Context) 
         holder.relativeHistoria.setOnClickListener {
             
             holder.relativeHistoria.startAnimation(animation)
-
             val pos = it.tag.toString().toInt()
+
+            onHistorylickListener?.onHistoryClickListener(pos)
+
             if(pos == 0) Toast.makeText(context, "Agregar historia", Toast.LENGTH_SHORT).show()
             else Toast.makeText(context, "Ver historia de ${ historias[pos].username }", Toast.LENGTH_SHORT).show()
         }

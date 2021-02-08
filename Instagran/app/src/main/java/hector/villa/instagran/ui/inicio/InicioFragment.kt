@@ -1,5 +1,6 @@
 package hector.villa.instagran.ui.inicio
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,11 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import hector.villa.instagran.R
 import hector.villa.instagran.domain.Historia
 import hector.villa.instagran.domain.ImagenHistoria
+import hector.villa.instagran.ui.detalle_historia.DetalleHistoriaActivity
 import java.util.*
 import kotlin.collections.ArrayList
 
-class InicioFragment : Fragment() {
-
+class InicioFragment : Fragment(), HistoriaAdapter.OnHistoryClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +34,7 @@ class InicioFragment : Fragment() {
 
         context?.let {
             val historiaAdapter = HistoriaAdapter(historias, it)
+            historiaAdapter.onHistorylickListener = this
             recyclerHistorias.adapter = historiaAdapter
             recyclerHistorias.layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
         }
@@ -58,6 +60,13 @@ class InicioFragment : Fragment() {
         imagenes.add(ImagenHistoria("ajshdka.png", Date(), false))
 
         return imagenes
+    }
+
+    override fun onHistoryClickListener(position: Int) {
+        context?.let {
+            val detalleHistoriaIntent = Intent(it, DetalleHistoriaActivity::class.java)
+            it.startActivity(detalleHistoriaIntent)
+        }
     }
 
 }
