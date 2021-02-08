@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:id="@+id/relativeHistoria"
+        android:layout_width="66dp"
+        android:layout_height="66dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageViewHistoria"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_steve"
+            app:civ_border_width="3dp"
+            app:civ_border_color="@color/historia_vista_borde"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/btnAgregarHistoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_add"
+            app:civ_border_width="0dp"
+            app:civ_circle_background_color="@color/white" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_marginTop="5dp"
+        android:layout_width="76dp"
+        android:textSize="12sp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="tortasmcflyelchido"/>
+</LinearLayout>

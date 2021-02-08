@@ -1,58 +1,72 @@
 package hector.villa.instagran.ui.inicio
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import hector.villa.instagran.R
+import hector.villa.instagran.domain.Historia
+import hector.villa.instagran.domain.ImagenHistoria
+import hector.villa.instagran.ui.detalle_historia.DetalleHistoriaActivity
+import java.util.*
+import kotlin.collections.ArrayList
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [InicioFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class InicioFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class InicioFragment : Fragment(), HistoriaAdapter.OnHistoryClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inicio, container, false)
+
+        val viewRoot = inflater.inflate(R.layout.fragment_inicio, container, false)
+        val recyclerHistorias = viewRoot.findViewById<RecyclerView>(R.id.recyclerHistorias)
+        val historias = ArrayList<Historia>()
+        historias.add(Historia("hector88", "https://miro.medium.com/max/1082/1*E3DrG0S77WuiXaPYmXMn4Q.jpeg", Date(), obtenerImagenesEjemplo2()))
+        historias.add(Historia("tony789", "https://imagenes.20minutos.es/files/og_thumbnail/uploads/imagenes/2020/05/12/elon-musk-director-de-testa-y-spacex.jpeg", Date(), obtenerImagenesEjemplo()))
+        historias.add(Historia("tortasMcFly", "https://pm1.narvii.com/6959/0abc2ee7487547f50e380ab77069beb11245eb0ar1-1008-500v2_00.jpg", Date(), obtenerImagenesEjemplo()))
+        historias.add(Historia("roberto_bolaños", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/spiderman-sony-spiderverso-1567749360.jpeg", Date(), obtenerImagenesEjemplo2()))
+
+        context?.let {
+            val historiaAdapter = HistoriaAdapter(historias, it)
+            historiaAdapter.onHistorylickListener = this
+            recyclerHistorias.adapter = historiaAdapter
+            recyclerHistorias.layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
+        }
+
+        return viewRoot
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment InicioFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-                InicioFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
+    private fun obtenerImagenesEjemplo(): ArrayList<ImagenHistoria> {
+
+        val imagenes = ArrayList<ImagenHistoria>()
+        imagenes.add(ImagenHistoria("ajshdka.png", Date(), true))
+        imagenes.add(ImagenHistoria("ajshdka.png", Date(), true))
+        imagenes.add(ImagenHistoria("ajshdka.png", Date(), true))
+
+        return imagenes
     }
+
+    private fun obtenerImagenesEjemplo2(): ArrayList<ImagenHistoria> {
+
+        val imagenes = ArrayList<ImagenHistoria>()
+        imagenes.add(ImagenHistoria("ajshdka.png", Date(), true))
+        imagenes.add(ImagenHistoria("ajshdka.png", Date(), false))
+        imagenes.add(ImagenHistoria("ajshdka.png", Date(), false))
+
+        return imagenes
+    }
+
+    override fun onHistoryClickListener(position: Int) {
+        context?.let {
+            val detalleHistoriaIntent = Intent(it, DetalleHistoriaActivity::class.java)
+            it.startActivity(detalleHistoriaIntent)
+        }
+    }
+
 }
