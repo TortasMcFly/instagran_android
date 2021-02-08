@@ -18,19 +18,19 @@
             android:layout_height="66dp"
             android:scaleType="centerCrop"
             android:src="@drawable/profile_steve"
-            app:civ_border_width="2dp"
+            app:civ_border_width="3dp"
             app:civ_border_color="@color/historia_vista_borde"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/btnAgregarHistoria"
-            android:background="?selectableItemBackgroundBorderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_add_circle_24"
-            app:civ_circle_background_color="@color/white"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            app:civ_border_width="0dp"/>
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_add"
+            app:civ_border_width="0dp"
+            app:civ_circle_background_color="@color/white" />
+
 
     </RelativeLayout>
 

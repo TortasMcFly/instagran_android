@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_alignParentBottom="true"
+        android:theme="@style/Theme.Instagran2"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/navigation_items" />
 
