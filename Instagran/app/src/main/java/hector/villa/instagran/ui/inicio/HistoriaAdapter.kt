@@ -23,6 +23,8 @@ class HistoriaAdapter(val historias: ArrayList<Historia>, val context: Context) 
 
     var onHistorylickListener: OnHistoryClickListener? = null
 
+    var onHistoryAction: ((position: Int) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoriaViewHolder {
         return HistoriaViewHolder(
                 LayoutInflater.from(context).inflate(R.layout.item_historia, parent, false)
@@ -56,10 +58,8 @@ class HistoriaAdapter(val historias: ArrayList<Historia>, val context: Context) 
             holder.relativeHistoria.startAnimation(animation)
             val pos = it.tag.toString().toInt()
 
-            onHistorylickListener?.onHistoryClickListener(pos)
-
-            if(pos == 0) Toast.makeText(context, "Agregar historia", Toast.LENGTH_SHORT).show()
-            else Toast.makeText(context, "Ver historia de ${ historias[pos].username }", Toast.LENGTH_SHORT).show()
+            //onHistorylickListener?.onHistoryClickListener(pos)
+            onHistoryAction?.invoke(pos)
         }
     }
 

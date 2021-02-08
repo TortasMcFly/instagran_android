@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import hector.villa.instagran.R
@@ -15,7 +16,11 @@ import hector.villa.instagran.ui.detalle_historia.DetalleHistoriaActivity
 import java.util.*
 import kotlin.collections.ArrayList
 
-class InicioFragment : Fragment(), HistoriaAdapter.OnHistoryClickListener {
+class InicioFragment : Fragment()
+    //, HistoriaAdapter.OnHistoryClickListener
+{
+
+    val historias = ArrayList<Historia>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +31,7 @@ class InicioFragment : Fragment(), HistoriaAdapter.OnHistoryClickListener {
 
         val viewRoot = inflater.inflate(R.layout.fragment_inicio, container, false)
         val recyclerHistorias = viewRoot.findViewById<RecyclerView>(R.id.recyclerHistorias)
-        val historias = ArrayList<Historia>()
+
         historias.add(Historia("hector88", "https://miro.medium.com/max/1082/1*E3DrG0S77WuiXaPYmXMn4Q.jpeg", Date(), obtenerImagenesEjemplo2()))
         historias.add(Historia("tony789", "https://imagenes.20minutos.es/files/og_thumbnail/uploads/imagenes/2020/05/12/elon-musk-director-de-testa-y-spacex.jpeg", Date(), obtenerImagenesEjemplo()))
         historias.add(Historia("tortasMcFly", "https://pm1.narvii.com/6959/0abc2ee7487547f50e380ab77069beb11245eb0ar1-1008-500v2_00.jpg", Date(), obtenerImagenesEjemplo()))
@@ -34,7 +39,8 @@ class InicioFragment : Fragment(), HistoriaAdapter.OnHistoryClickListener {
 
         context?.let {
             val historiaAdapter = HistoriaAdapter(historias, it)
-            historiaAdapter.onHistorylickListener = this
+            //historiaAdapter.onHistorylickListener = this
+            historiaAdapter.onHistoryAction = { position -> openDetail( position ) }
             recyclerHistorias.adapter = historiaAdapter
             recyclerHistorias.layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
         }
@@ -62,11 +68,20 @@ class InicioFragment : Fragment(), HistoriaAdapter.OnHistoryClickListener {
         return imagenes
     }
 
-    override fun onHistoryClickListener(position: Int) {
+    private fun openDetail(position: Int) {
         context?.let {
+            if(position == 0) Toast.makeText(it, "Agregar historia", Toast.LENGTH_SHORT).show()
+            else Toast.makeText(it, "Ver historia de ${ historias[position].username }", Toast.LENGTH_SHORT).show()
+
             val detalleHistoriaIntent = Intent(it, DetalleHistoriaActivity::class.java)
             it.startActivity(detalleHistoriaIntent)
         }
     }
+
+    /*override fun onHistoryClickListener(position: Int) {
+        context?.let {
+            openDetail( position )
+        }
+    }*/
 
 }
