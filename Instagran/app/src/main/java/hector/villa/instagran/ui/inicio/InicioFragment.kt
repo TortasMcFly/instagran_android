@@ -51,8 +51,8 @@ class InicioFragment : Fragment()
     private fun obtenerImagenesEjemplo(): ArrayList<ImagenHistoria> {
 
         val imagenes = ArrayList<ImagenHistoria>()
-        imagenes.add(ImagenHistoria("ajshdka.png", Date(), true))
-        imagenes.add(ImagenHistoria("ajshdka.png", Date(), true))
+        imagenes.add(ImagenHistoria("https://www.infobae.com/new-resizer/XgIWdTkfiBsP4e1xvV1QVYEIY-c=/1200x900/filters:format(jpg):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/SPXYC3CGMBD6VM3BOGWUZDISUE.jpg", Date(), true))
+        imagenes.add(ImagenHistoria("https://www.prensalibre.com/wp-content/uploads/2019/06/Guitarra-1.jpg?quality=82&w=760&h=430&crop=1", Date(), true))
         imagenes.add(ImagenHistoria("ajshdka.png", Date(), true))
 
         return imagenes
@@ -61,9 +61,9 @@ class InicioFragment : Fragment()
     private fun obtenerImagenesEjemplo2(): ArrayList<ImagenHistoria> {
 
         val imagenes = ArrayList<ImagenHistoria>()
-        imagenes.add(ImagenHistoria("ajshdka.png", Date(), true))
-        imagenes.add(ImagenHistoria("ajshdka.png", Date(), false))
-        imagenes.add(ImagenHistoria("ajshdka.png", Date(), false))
+        imagenes.add(ImagenHistoria("https://www.infobae.com/new-resizer/XgIWdTkfiBsP4e1xvV1QVYEIY-c=/1200x900/filters:format(jpg):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/SPXYC3CGMBD6VM3BOGWUZDISUE.jpg", Date(), true))
+        imagenes.add(ImagenHistoria("https://pm1.narvii.com/6959/0abc2ee7487547f50e380ab77069beb11245eb0ar1-1008-500v2_00.jpg", Date(), false))
+        imagenes.add(ImagenHistoria("https://www.prensalibre.com/wp-content/uploads/2019/06/Guitarra-1.jpg?quality=82&w=760&h=430&crop=1", Date(), false))
 
         return imagenes
     }
@@ -74,6 +74,7 @@ class InicioFragment : Fragment()
             else Toast.makeText(it, "Ver historia de ${ historias[position].username }", Toast.LENGTH_SHORT).show()
 
             val detalleHistoriaIntent = Intent(it, DetalleHistoriaActivity::class.java)
+            detalleHistoriaIntent.putExtra("historia_detalle", historias[position])
             it.startActivity(detalleHistoriaIntent)
         }
     }
