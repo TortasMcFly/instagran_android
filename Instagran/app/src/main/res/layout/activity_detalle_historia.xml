@@ -20,9 +20,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:layout_margin="10dp"
+            <ImageView
+                android:id="@+id/storyImage"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:id="@+id/profileArea"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -51,6 +57,22 @@
 
             </LinearLayout>
 
+            <com.teresaholfeld.stories.StoriesProgressView
+                android:id="@+id/stories"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_below="@+id/profileArea"
+                android:layout_gravity="top"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"/>
+
+            <ImageView
+                android:id="@+id/btnCloseStory"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_close" />
 
         </RelativeLayout>
 

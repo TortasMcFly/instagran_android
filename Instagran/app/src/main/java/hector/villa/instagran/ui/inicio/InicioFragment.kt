@@ -17,7 +17,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class InicioFragment : Fragment()
-    //, HistoriaAdapter.OnHistoryClickListener
+    //, HistoriaAdapter.OnStoryClickListener
 {
 
     val historias = ArrayList<Historia>()
@@ -39,8 +39,8 @@ class InicioFragment : Fragment()
 
         context?.let {
             val historiaAdapter = HistoriaAdapter(historias, it)
-            //historiaAdapter.onHistorylickListener = this
-            historiaAdapter.onHistoryAction = { position -> openDetail( position ) }
+            //historiaAdapter.onStorylickListener = this
+            historiaAdapter.onStoryAction = { position -> openDetail( position ) }
             recyclerHistorias.adapter = historiaAdapter
             recyclerHistorias.layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
         }
@@ -51,9 +51,9 @@ class InicioFragment : Fragment()
     private fun obtenerImagenesEjemplo(): ArrayList<ImagenHistoria> {
 
         val imagenes = ArrayList<ImagenHistoria>()
-        imagenes.add(ImagenHistoria("https://www.infobae.com/new-resizer/XgIWdTkfiBsP4e1xvV1QVYEIY-c=/1200x900/filters:format(jpg):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/SPXYC3CGMBD6VM3BOGWUZDISUE.jpg", Date(), true))
-        imagenes.add(ImagenHistoria("https://www.prensalibre.com/wp-content/uploads/2019/06/Guitarra-1.jpg?quality=82&w=760&h=430&crop=1", Date(), true))
-        imagenes.add(ImagenHistoria("ajshdka.png", Date(), true))
+        imagenes.add(ImagenHistoria("https://miro.medium.com/max/1082/1*E3DrG0S77WuiXaPYmXMn4Q.jpeg", Date(), true))
+        imagenes.add(ImagenHistoria("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/spiderman-sony-spiderverso-1567749360.jpeg", Date(), true))
+        imagenes.add(ImagenHistoria("https://pm1.narvii.com/6959/0abc2ee7487547f50e380ab77069beb11245eb0ar1-1008-500v2_00.jpg", Date(), true))
 
         return imagenes
     }
@@ -61,9 +61,9 @@ class InicioFragment : Fragment()
     private fun obtenerImagenesEjemplo2(): ArrayList<ImagenHistoria> {
 
         val imagenes = ArrayList<ImagenHistoria>()
-        imagenes.add(ImagenHistoria("https://www.infobae.com/new-resizer/XgIWdTkfiBsP4e1xvV1QVYEIY-c=/1200x900/filters:format(jpg):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/SPXYC3CGMBD6VM3BOGWUZDISUE.jpg", Date(), true))
+        imagenes.add(ImagenHistoria("https://miro.medium.com/max/1082/1*E3DrG0S77WuiXaPYmXMn4Q.jpeg", Date(), true))
         imagenes.add(ImagenHistoria("https://pm1.narvii.com/6959/0abc2ee7487547f50e380ab77069beb11245eb0ar1-1008-500v2_00.jpg", Date(), false))
-        imagenes.add(ImagenHistoria("https://www.prensalibre.com/wp-content/uploads/2019/06/Guitarra-1.jpg?quality=82&w=760&h=430&crop=1", Date(), false))
+        imagenes.add(ImagenHistoria("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/spiderman-sony-spiderverso-1567749360.jpeg", Date(), false))
 
         return imagenes
     }
@@ -79,7 +79,7 @@ class InicioFragment : Fragment()
         }
     }
 
-    /*override fun onHistoryClickListener(position: Int) {
+    /*override fun onStoryClickListener(position: Int) {
         context?.let {
             openDetail( position )
         }

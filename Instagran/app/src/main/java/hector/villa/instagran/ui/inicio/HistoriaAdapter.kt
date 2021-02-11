@@ -17,13 +17,13 @@ import hector.villa.instagran.domain.Historia
 
 class HistoriaAdapter(val historias: ArrayList<Historia>, val context: Context) : RecyclerView.Adapter<HistoriaAdapter.HistoriaViewHolder>() {
 
-    interface OnHistoryClickListener {
-        fun onHistoryClickListener(position: Int)
+    interface OnStoryClickListener {
+        fun onStoryClickListener(position: Int)
     }
 
-    var onHistorylickListener: OnHistoryClickListener? = null
+    var onStorylickListener: OnStoryClickListener? = null
 
-    var onHistoryAction: ((position: Int) -> Unit)? = null
+    var onStoryAction: ((position: Int) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoriaViewHolder {
         return HistoriaViewHolder(
@@ -58,8 +58,8 @@ class HistoriaAdapter(val historias: ArrayList<Historia>, val context: Context) 
             holder.relativeHistoria.startAnimation(animation)
             val pos = it.tag.toString().toInt()
 
-            //onHistorylickListener?.onHistoryClickListener(pos)
-            onHistoryAction?.invoke(pos)
+            //onStorylickListener?.onStoryClickListener(pos)
+            onStoryAction?.invoke(pos)
         }
     }
 
