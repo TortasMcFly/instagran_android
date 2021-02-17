@@ -1,7 +1,9 @@
 package hector.villa.instagran.ui.detalle_historia
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -20,6 +22,9 @@ class DetalleHistoriaActivity : AppCompatActivity(), StoriesProgressView.Stories
     private lateinit var storyImage: ImageView
     private lateinit var tvUsername: TextView
     private lateinit var profileArea: View
+    private lateinit var areaIzquierda: View
+    private lateinit var areaDerecha: View
+    private lateinit var cardview: View
     private lateinit var storiesProgressView: StoriesProgressView
 
     private var position = 0
@@ -45,12 +50,35 @@ class DetalleHistoriaActivity : AppCompatActivity(), StoriesProgressView.Stories
         storyImage = findViewById(R.id.storyImage)
         tvUsername = findViewById(R.id.tvUsername)
         profileArea = findViewById(R.id.profileArea)
+        areaIzquierda = findViewById(R.id.areaIzquierda)
+        areaDerecha = findViewById(R.id.areaDerecha)
         storiesProgressView = findViewById(R.id.stories)
+        cardview = findViewById(R.id.cardview)
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupClickListeners() {
         profileArea.setOnClickListener {
             //TODO abrir perfil de usuario para despues
+        }
+
+        areaIzquierda.setOnClickListener {
+            if(position > 0) storiesProgressView.reverse()
+            else if(startUserPosition != 0) {
+                startUserPosition--
+                changeUserStories()
+            }
+        }
+
+        areaDerecha.setOnClickListener {
+            storiesProgressView.skip()
+        }
+
+        cardview.setOnTouchListener { v, event ->
+            if(event.action == MotionEvent.ACTION_DOWN) storiesProgressView.pause()
+            else if(event.action == MotionEvent.ACTION_UP) storiesProgressView.resume()
+
+            true
         }
 
         btnCloseStory.setOnClickListener {
