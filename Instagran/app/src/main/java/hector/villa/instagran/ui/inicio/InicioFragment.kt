@@ -88,11 +88,12 @@ class InicioFragment : Fragment()
 
     private fun openDetail(position: Int) {
         context?.let {
-            if(position == 0) Toast.makeText(it, "Agregar historia", Toast.LENGTH_SHORT).show()
-            else Toast.makeText(it, "Ver historia de ${ historias[position].username }", Toast.LENGTH_SHORT).show()
+            //if(position == 0) Toast.makeText(it, "Agregar historia", Toast.LENGTH_SHORT).show()
+            //else Toast.makeText(it, "Ver historia de ${ historias[position].username }", Toast.LENGTH_SHORT).show()
 
             val detalleHistoriaIntent = Intent(it, DetalleHistoriaActivity::class.java)
-            detalleHistoriaIntent.putExtra("historia_detalle", historias[position])
+            detalleHistoriaIntent.putExtra("start_position", position)
+            detalleHistoriaIntent.putExtra("historias_usuarios", historias)
             it.startActivity(detalleHistoriaIntent)
         }
     }

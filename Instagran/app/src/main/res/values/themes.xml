@@ -24,14 +24,20 @@
     <style name="Theme.Instagran2" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/black</item>
+        <!-- Customize your theme here. -->
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
 
     <style name="Theme.NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:statusBarColor">@color/black</item>
+        <!-- Customize your theme here. -->
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
 
     <style name="custom_toolbar" parent="@style/Widget.AppCompat.Toolbar">
         <item name="titleTextColor">@color/black</item>
+        <!-- Customize your theme here. -->
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
     <style name="Theme.Instagran2" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">@color/black</item>
