@@ -20,23 +20,38 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
+
+            <ImageView
+                android:id="@+id/storyImage"
+                android:clickable="false"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
             <View
                 android:id="@+id/areaIzquierda"
                 android:layout_marginTop="50dp"
                 android:layout_width="100dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="100dp"
+                android:layout_centerVertical="true"/>
+
+            <View
+                android:id="@+id/areaCentro"
+                android:layout_toEndOf="@id/areaIzquierda"
+                android:layout_toStartOf="@id/areaDerecha"
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
 
             <View
                 android:id="@+id/areaDerecha"
                 android:layout_marginTop="50dp"
                 android:layout_width="100dp"
-                android:layout_height="match_parent"
+                android:layout_height="100dp"
+                android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"/>
-
-            <ImageView
-                android:id="@+id/storyImage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
 
             <LinearLayout
                 android:id="@+id/profileArea"
