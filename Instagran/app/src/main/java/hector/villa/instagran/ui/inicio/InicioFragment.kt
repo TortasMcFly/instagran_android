@@ -6,13 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import hector.villa.instagran.R
 import hector.villa.instagran.domain.Historia
 import hector.villa.instagran.domain.ImagenHistoria
-import hector.villa.instagran.ui.detalle_historia.DetalleHistoriaActivity
+import hector.villa.instagran.ui.detalle_historia.StoriesActivity
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -70,13 +69,10 @@ class InicioFragment : Fragment()
 
     private fun openDetail(position: Int) {
         context?.let {
-            //if(position == 0) Toast.makeText(it, "Agregar historia", Toast.LENGTH_SHORT).show()
-            //else Toast.makeText(it, "Ver historia de ${ historias[position].username }", Toast.LENGTH_SHORT).show()
-
-            val detalleHistoriaIntent = Intent(it, DetalleHistoriaActivity::class.java)
-            detalleHistoriaIntent.putExtra("start_position", position)
-            detalleHistoriaIntent.putExtra("historias_usuarios", historias)
-            it.startActivity(detalleHistoriaIntent)
+            val storiesIntent = Intent(it, StoriesActivity::class.java)
+            storiesIntent.putExtra("start_position", position)
+            storiesIntent.putExtra("historias_usuarios", historias)
+            it.startActivity(storiesIntent)
         }
     }
 
